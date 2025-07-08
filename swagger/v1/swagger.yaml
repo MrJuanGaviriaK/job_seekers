@@ -1,0 +1,73 @@
+---
+openapi: 3.0.1
+info:
+  title: Job Board API V1
+  version: v1
+paths:
+  "/api/v1/opportunities":
+    get:
+      summary: List opportunities
+      tags:
+      - Opportunities
+      parameters:
+      - name: search
+        in: query
+        description: Search by title
+        schema:
+          type: string
+      - name: page
+        in: query
+        description: Page number
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: opportunities listed
+    post:
+      summary: Create opportunity
+      tags:
+      - Opportunities
+      parameters: []
+      responses:
+        '201':
+          description: opportunity created
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                client_id:
+                  type: integer
+                title:
+                  type: string
+                description:
+                  type: string
+                salary:
+                  type: integer
+              required:
+              - client_id
+              - title
+              - description
+              - salary
+  "/api/v1/opportunities/{id}/apply":
+    post:
+      summary: Job seeker applies to opportunity
+      tags:
+      - Opportunities
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: job_seeker_id
+        in: query
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: application successful
+servers:
+- url: http://localhost:3000
+  description: Development Server

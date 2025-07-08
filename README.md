@@ -1,24 +1,22 @@
-# README
+# Job Seeker API
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a Rails API-only application for job seekers and clients.
 
-Things you may want to cover:
+## Features
 
-* Ruby version
+- API versioning (via `/api/v1`)
+- Swagger UI docs
+- Job seekers can apply to jobs
+- Clients can create job opportunities
+- Background jobs using Sidekiq
+- Caching & pagination
+- RSpec tests
 
-* System dependencies
+---
 
-* Configuration
+## 🧪 Running Tests (Locally)
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+```bash
+bundle install
+rails db:setup
+COVERAGE=true bundle exec rspec
