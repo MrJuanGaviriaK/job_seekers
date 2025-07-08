@@ -14,9 +14,15 @@ This is a Rails API-only application for job seekers and clients.
 
 ---
 
-## 🧪 Running Tests (Locally)
+## Running the project (Locally)
 
 ```bash
 bundle install
 rails db:setup
+rails s
+brew services start redis # if on macOS
+bundle exec sidekiq
+```
+
+## Running the tests with COVERAGE
 COVERAGE=true bundle exec rspec
