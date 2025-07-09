@@ -17,11 +17,21 @@ This is a Rails API-only application for job seekers and clients.
 ## Running the project (Locally)
 
 ```bash
+# 1. Install dependencies
 bundle install
+
+# 2. Set up the database (creates, migrates, and seeds if needed)
 rails db:setup
+
+# 3. Start Redis (required for Sidekiq background jobs)
+brew services start redis  # macOS only
+# OR use `redis-server` if not using Homebrew
+
+# 4. Start the Rails server
 rails s
-brew services start redis # if on macOS
-bundle exec sidekiq
+
+# 5. In a separate terminal, start Sidekiq for background jobs
+bundle exec sidekiqq
 ```
 
 ## Running the tests with COVERAGE
