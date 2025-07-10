@@ -9,6 +9,14 @@ gem 'rails', '~> 6.1.7', '>= 6.1.7.10'
 gem 'pg', '~> 1.1'
 # Use Puma as the app server
 gem 'puma', '~> 5.0'
+gem 'sidekiq'
+gem 'rswag'
+gem 'kaminari'
+gem 'faker'
+gem 'rspec-rails'
+gem 'bullet'           # for N+1 detection in dev
+gem 'redis'
+gem 'concurrent-ruby', '1.3.4'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 # gem 'jbuilder', '~> 2.7'
 # Use Redis adapter to run Action Cable in production
@@ -23,11 +31,13 @@ gem 'puma', '~> 5.0'
 gem 'bootsnap', '>= 1.4.4', require: false
 
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
-# gem 'rack-cors'
+gem 'rack-cors'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'simplecov', require: false
+  gem 'shoulda-matchers', '~> 5.0'
 end
 
 group :development do
